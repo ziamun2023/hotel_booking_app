@@ -1,10 +1,35 @@
 import React from 'react';
-
+import { useNavigate } from 'react-router-dom';
+import qs from "query-string";
+import { useSearchParams } from 'react-router-dom';
 const CategoryBox = ({label,icon: Icon}) => {
+    const [params,setParams]=useSearchParams()
+    // console.log(params)
+    const  value=params.get('category')
+
+const navigate=useNavigate()
+const handleClick=()=>{
+    let currentQuery={}
+    if(params){
+        currentQuery=qs.parse(params.toString())
+    }
+    const updatedQUery={
+        ...currentQuery, 
+        category: label,
+    }
+    const url=qs.stringifyUrl({
+        url:'/',
+        query:updatedQUery 
+    },{
+        skipNull:true   
+    })
+    navigate(url)
+}
+
     return (
-        <div className='flex flex-col items-center justify-center gap-2 p-3 border-b-2 hover:text-[rgb(69,105,221)]  border-transparent text-neutral-500'>
+        <div onClick={handleClick} className='flex hover:bg-[rgb(136,108,94)] duration-300 cursor-pointer flex-col items-center justify-center gap-2 p-3 border-b-2 hover:text-[white] rounded-2xl  border-transparent text-neutral-500'>
             <Icon size={26}></Icon>
-            <div className='text-sm font-medium'>{label}</div>
+            <div className='text-sm font-medium '>{label}</div>
         </div>
     );
 };

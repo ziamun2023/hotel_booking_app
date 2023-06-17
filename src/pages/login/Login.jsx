@@ -50,7 +50,7 @@ const Login = () => {
             console.log(email,password)
             signIn(email,password)
             .then(result=>{
-                console.log(result.user)
+              SaveUserFromSite(result.user)
                 navigate(from , {replace: true})
             })
             .catch(err=>{
@@ -130,7 +130,7 @@ const Login = () => {
           <div>
             <button
               type='submit'
-              className='bg-[rgb(69,105,221)] w-full rounded-md py-3 text-black'
+              className='bg-[rgb(136,108,94)] w-full rounded-md py-3 text-white'
             >{
                 loading?<TbFidgetSpinner className='m-auto animate-spin' size={24}></TbFidgetSpinner>:"  Continue"
             }

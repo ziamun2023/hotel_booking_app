@@ -3,6 +3,7 @@ import MainContainer from '../MainContainer';
 import NavImage from './NavImage';
 import Search from './Search';
 import MenuDropdown from './MenuDropdown';
+import CountUserUp from '../../CountUp/CountUserUp';
 
 const Navbar = () => {
     return (
@@ -13,6 +14,9 @@ const Navbar = () => {
 
         <div>
             <NavImage/>
+        </div>
+        <div>
+            <CountUserUp/>  
         </div>
         <div>
             <Search/>

@@ -4,6 +4,7 @@ import { FcGoogle } from 'react-icons/fc'
 import { useContext } from 'react'
 import { AuthContext } from '../../providers/AuthProvider'
 import { TbFidgetSpinner } from 'react-icons/tb'
+import { SaveUserFromSite } from '../../api/auth'
 
 const SignUp = () => {
     const navigate=useNavigate()
@@ -64,9 +65,11 @@ const SignUp = () => {
                     .then(result=>{
                         console.log(result.user)
                         updateUserProfile(name,imageUrl)
-                        .then(result=>{
-                            // console.log(result.user)
-                            toast.success('logged in successfully !')
+                        .then(()=>{
+                          SaveUserFromSite(result.user)
+                 console.log(result.user.email)
+                            toast.success('logged in successfully !') 
+                         
                             navigate(from , {replace: true})
                         })
                         .catch(err=>{
@@ -174,7 +177,7 @@ const SignUp = () => {
             <button
 
               type='submit'
-              className='bg-rose-500 w-full rounded-md py-3 text-white'
+              className='bg-[rgb(136,108,94)] w-full rounded-md py-3 text-white'
             >
            {
                 loading?<TbFidgetSpinner className='m-auto animate-spin' size={24}></TbFidgetSpinner>:"  Continue"
