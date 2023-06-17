@@ -37,7 +37,7 @@ export const router = createBrowserRouter([
     children:[
       {
         path:'/dashboard/add-new-room/',
-        element:<AddRoom/>
+        element:<AddRoom  />
       }
     ]
   }
