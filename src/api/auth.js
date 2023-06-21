@@ -15,3 +15,27 @@ export const SaveUserFromSite =user=>{
     .then(res=>res.json())
     .then(data=>console.log(data))
     }
+
+
+    export const beAhost =(email)=>{
+        const currentUser={
+            roll: 'admin',
+        }
+
+ return fetch(`http://localhost:5000/users/${email}`,{
+            method:'PUT',
+            headers:{
+                'content-type':"application/json"
+            }, //the data is being sent in  json format
+            body: JSON.stringify(currentUser)
+        })
+    .then(res=>res.json())
+   
+    }
+
+
+
+
+
+
+    

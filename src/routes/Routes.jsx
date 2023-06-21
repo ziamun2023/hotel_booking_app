@@ -6,6 +6,7 @@ import SignUp from '../pages/signup/Signup'
 import RoomDetails from '../pages/roomDetails/RoomDetails'
 import DashBoard from '../layouts/DashBoard'
 import AddRoom from '../pages/DashboardPage/AddRoom'
+import { getAllRooms, getRoom } from '../api/rooms'
 
 
 export const router = createBrowserRouter([
@@ -19,7 +20,8 @@ export const router = createBrowserRouter([
       },
       {
         path: '/room/:id',
-        element:<RoomDetails/>
+        element:<RoomDetails/>,
+        loader:({params})=>getRoom(params.id)
       }
     ]
   },

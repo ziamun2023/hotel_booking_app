@@ -1,10 +1,3 @@
-// import { Container } from 'postcss';
-// import React, { useEffect, useState } from 'react';
-// import MainContainer from '../Shared/MainContainer';
-// import Card from './Card';
-// import Loader from '../Shared/loader/Loader';
-// import { useSearchParams } from 'react-router-dom';
-// import Heading from '../heading/Heading';
 
 import React, { useEffect, useState } from 'react'
 import Container from '../Shared/MainContainer'

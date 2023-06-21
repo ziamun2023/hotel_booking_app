@@ -4,21 +4,24 @@ import Header from '../../allComponent/header/Header';
 import HeadSection from './HeadSection';
 import Roominfo from './RoomInfo';
 import ReserveDate from './ReserveDate';
+import { useLoaderData, useParams } from 'react-router-dom';
 
 const RoomDetails = () => {
+    const Roomdata =useLoaderData()
+    console.log(Roomdata)
     return (
         <MainContainer>
             
-            <div className='max-w-screen-lg mx-auto'>
+            <div className=' mx-auto'>
 
-                <div className='flex flex-col gap-6'>
-<HeadSection/>
-<div className='grid lg:grid-cols-2 gap-10'>
-<div><Roominfo/></div>
-<div>
- <ReserveDate/>
+                <div className='grid lg:grid-cols-2  gap-6'>
+
+<div className=' gap-10'>
+<HeadSection Roomdata={Roomdata} />
+<Roominfo  Roomdata={Roomdata}/>
+
 </div>
-</div>
+<ReserveDate  Roomdata={Roomdata}/>
                 </div>
             </div>
         </MainContainer>
