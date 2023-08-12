@@ -97,7 +97,7 @@ const SideBar = () => {
                 </label>
                 {/* Menu Links */}
                 <NavLink
-                  to='/dashboard/add-new-room/'
+                  to='/dashboard/add-new-destination/'
                   className={({ isActive }) =>
                     `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-black ${
                       isActive ? 'bg-gray-300  text-white' : 'text-white'

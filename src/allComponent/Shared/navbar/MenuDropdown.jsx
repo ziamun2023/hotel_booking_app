@@ -4,21 +4,25 @@ import { AiOutlineMenu } from 'react-icons/ai'
 import { Link } from 'react-router-dom';
 import Avatar from './Avatar';
 import HostModal from "../../modal/HostModal"
-import { beAhost } from '../../../api/auth';
+// import { beAhost } from '../../../api/auth';
 import { toast } from 'react-hot-toast';
 // import Avatar from './Avatar'
 const MenuDropdown = () => {
+  const { user, logOut ,role,setRole} = useContext(AuthContext)
   const [modal,setModal]=useState(false)
   const modalHandler=(email)=>{
    beAhost(email).then(data=>{
     console.log(data)
     toast.success('you are now a host')
+    setRole('admin')
+    closeMOdal()
    })
   }
   const closeMOdal=()=>{
     setModal(false)
   }
-    const { user, logOut } = useContext(AuthContext)
+    // const { user, logOut ,role} = useContext(AuthContext)
+    console.log(role)
     const [isOpen, setIsOpen] = useState(false)
     const toggleOpen = useCallback(() => {
       setIsOpen(value => !value)
@@ -26,8 +30,10 @@ const MenuDropdown = () => {
     return (
         <div className='relative'>
         <div className='flex flex-row items-center gap-3'>
-          <div onClick={()=>setModal(true)} className='hidden md:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer'>
-            AirCNC your home
+          <div  className='hidden md:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer'>
+    {!role &&   <button onClick={()=>setModal(true)} disabled={!user}>
+   Become a host
+        </button> }
           </div>
           <div
             onClick={toggleOpen}
@@ -48,9 +54,30 @@ const MenuDropdown = () => {
               >
                 Home
               </Link>
+              <Link
+                to='/'
+                className='block md:hidden px-4 py-3 hover:bg-neutral-100 transition font-semibold'
+              >
+                Blog
+              </Link>
+              <Link
+                to='/'
+                className='block md:hidden px-4 py-3 hover:bg-neutral-100 transition font-semibold'
+              >
+                Location
+              </Link>
+              <Link
+                to='/'
+                className='block md:hidden px-4 py-3 hover:bg-neutral-100 transition font-semibold'
+              >
+                Listing
+              </Link>
               {user ? (
                 <div
-                  onClick={logOut}
+                  onClick={()=>{
+                    setRole(null)
+                    logOut()
+                  }}
                   className='px-4 py-3 hover:bg-neutral-100 transition font-semibold cursor-pointer'
                 >
                   Logout

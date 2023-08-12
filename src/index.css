@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.hideScroll::-webkit-scrollbar {
+    display: none;
+}
+
+.stylefont{
+    font-family: 'Tangerine', cursive;
+}
+
+

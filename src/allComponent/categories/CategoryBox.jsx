@@ -27,9 +27,9 @@ const handleClick=()=>{
 }
 
     return (
-        <div onClick={handleClick} className='flex hover:bg-[rgb(136,108,94)] duration-300 cursor-pointer flex-col items-center justify-center gap-2 p-3 border-b-2 hover:text-[white] rounded-2xl  border-transparent text-neutral-500'>
-            <Icon size={26}></Icon>
-            <div className='text-sm font-medium '>{label}</div>
+        <div onClick={handleClick} className='flex  duration-300 cursor-pointer flex-col items-center justify-center gap-2 p-3 border-b-2 hover:text-[black] rounded-2xl  border-transparent text-neutral-500'>
+            <Icon size={22}></Icon>
+            <div className='text-[15px] font-medium '>{label}</div>
         </div>
     );
 };

@@ -17,9 +17,9 @@ export const SaveUserFromSite =user=>{
     }
 
 
-    export const beAhost =(email)=>{
+    export const makeAdmin =(email)=>{
         const currentUser={
-            roll: 'admin',
+            role: 'admin',
         }
 
  return fetch(`http://localhost:5000/users/${email}`,{
@@ -33,8 +33,15 @@ export const SaveUserFromSite =user=>{
    
     }
 
+            
 
+// get role
 
+                export const getRole = async email => {
+                    const response = await fetch(`http://localhost:5000/users/${email}`)
+                    const user = await response.json()
+                    return user?.role
+                }
 
 
 

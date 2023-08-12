@@ -9,10 +9,14 @@ import { Toaster } from 'react-hot-toast'
 
 import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
+import { ParallaxProvider } from 'react-scroll-parallax'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <AuthProvider>
-    <Toaster />
+     <ParallaxProvider>
+     <Toaster />
     <RouterProvider router={router} />
+     </ParallaxProvider>
+
   </AuthProvider>
 )

@@ -1,10 +1,11 @@
 import { Link, useNavigate } from 'react-router-dom'
-import { toast } from 'react-hot-toast'
+
 import { FcGoogle } from 'react-icons/fc'
 import { useContext } from 'react'
 import { AuthContext } from '../../providers/AuthProvider'
 import { TbFidgetSpinner } from 'react-icons/tb'
 import { SaveUserFromSite } from '../../api/auth'
+import { toast } from 'react-hot-toast'
 
 const SignUp = () => {
     const navigate=useNavigate()
