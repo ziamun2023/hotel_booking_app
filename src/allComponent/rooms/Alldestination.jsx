@@ -36,7 +36,7 @@ const Alldestination = () => {
     return <Loader />
   }
   return (
-    <MainContainer>
+    <>
       {rooms && rooms.length > 0 ? (
         <div className='pt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-3 gap-8'>
           {rooms.map((room, index) => (
@@ -52,7 +52,7 @@ const Alldestination = () => {
           />
         </div>
       )}
-    </MainContainer>
+    </>
   )
 }
 

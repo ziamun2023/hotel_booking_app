@@ -27,6 +27,7 @@
     "react-router-dom": "^6.11.2",
     "react-scroll-parallax": "^3.4.2",
     "react-spinners": "^0.13.8",
+    "swiper": "^10.1.0",
     "typescript": "^5.1.6",
     "use-count-up": "^3.0.1"
   },
